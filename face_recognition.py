@@ -3,16 +3,16 @@ import cv2
 import pickle
 import os
 
-file_name = os.path.join(os.path.dirname(__file__), 'c://Dev//testopencv//haar-cascade-files-master//haarcascade_frontalface_alt2.xml')
+file_name = os.path.join(os.path.dirname(__file__), 'c://project//haar-cascade-files-master//haarcascade_frontalface_alt2.xml')
 assert os.path.exists(file_name)
 face_cascade = cv2.CascadeClassifier(file_name)
 
 
 recognizer = cv2.face.LBPHFaceRecognizer_create()
-recognizer.read("c://Dev//testopencv//recognizers//face-trainner.yml")
+recognizer.read("c://project//recognizers//face-trainner.yml")
 
 labels = {"person_name": 1}
-with open("c://Dev//testopencv//pickles//face-labels.pickle", 'rb') as f:
+with open("c://project//pickles//face-labels.pickle", 'rb') as f:
 	og_labels = pickle.load(f)
 	labels = {v:k for k,v in og_labels.items()}
 
